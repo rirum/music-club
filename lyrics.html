@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Flamingo - Kenshi Yonezu</title>
+  <style>
+    body {
+      font-family: 'Noto Serif JP', sans-serif;
+      background: #fff;
+      color: #111;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    iframe {
+      margin-bottom: 2rem;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .verse {
+      display: none;
+      margin: 2rem auto;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .jp {
+      font-size: 1.4rem;
+    }
+
+    .romaji {
+      font-size: 1.1rem;
+      color: #444;
+      margin-top: 0.2rem;
+    }
+
+    .en {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 0.2rem;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #111;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Flamingo - 米津玄師</h1>
+
+
+  <iframe style="border-radius:12px" 
+    src="https://open.spotify.com/embed/track/3ILWwi1JNj3NGuuf6DzYxN?utm_source=generator" 
+    width="100%" height="152" frameBorder="0" allowfullscreen="" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy">
+  </iframe>
+
+  
+  <div id="verse-container">
+    <div class="verse" id="line1">
+      <div class="jp">宵闇に 爪弾き</div>
+      <div class="romaji">Yoiyami ni tsumahajiki</div>
+      <div class="en">Plucking in the dusk</div>
+    </div>
+    <div class="verse" id="line2">
+      <div class="jp">悲しみに 雨曝し 花曇り</div>
+      <div class="romaji">Kanashimi ni amazarashi hanagumori</div>
+      <div class="en">Exposed to sadness, rainy weather, and flower haze</div>
+    </div>
+    <div class="verse" id="line3">
+      <div class="jp">枯れた街 にべもなし</div>
+      <div class="romaji">Kareta machi nibemonashi</div>
+      <div class="en">A withered town with no kindness</div>
+    </div>
+ 
+  </div>
+
+  <button onclick="nextVerse()">Próximo verso</button>
+
+  <script>
+    const verses = [
+      'line1', 'line2', 'line3'
+    ];
+    let current = 0;
+
+    function nextVerse() {
+      if (current > 0) {
+       
+        document.getElementById(verses[current - 1]).style.display = 'none';
+      }
+      if (current < verses.length) {
+ 
+        document.getElementById(verses[current]).style.display = 'block';
+        current++;
+      } else {
+        alert("Fim da letra!");
+      }
+    }
+
+    window.onload = () => {
+      if (verses.length > 0) {
+        document.getElementById(verses[0]).style.display = 'block';
+        current = 1;
+      }
+    };
+  </script>
+
+</body>
+</html>
